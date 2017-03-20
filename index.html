@@ -8,7 +8,9 @@
     <title>Flask Starter App</title>
 
     <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/main.css">
     
     <!--AngularJS-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
@@ -41,15 +43,27 @@
     
     
       <div ng-app="myShoppingList" ng-controller="myCtrl">
-        <ul>
-            <li ng-repeat="x in products">
-                    {{x}} 
-                    <span ng-click="removeItem($index)">&times;</span>
-                </li>
-        </ul>
-        <input ng-model="addMe">
-        <button ng-click="addItem()">Add</button>
-        <p>{{errortext}}</p>
+        <div class="list-container container-fluid">
+            <div class="list-heading">
+                <h3>My Shopping List</h3>
+            </div>
+            <ul class="list">
+                <div class="item">
+                    <li class="list-item" ng-repeat="x in products">
+                        <span> {{x}} </span> 
+                        <span class="remove" ng-click="removeItem($index)">&times;</span>
+                    </li>    
+                </div>
+                
+            </ul>
+            
+            <div class="add-item-container">
+                <input class="add-item-input form-control" ng-model="addMe">
+                <button class="add-item-btn btn btn-sm btn-default" ng-click="addItem()">Add</button>
+            </div>
+            
+            <p class="error">{{errortext}}</p>
+        </div>
     </div>
   </body>
 </html>
